@@ -1,11 +1,22 @@
 function dTdt = solarODE(t,T)
-    
+    %height of house
+    height = 4.57;
+    %width of house
+    width = 5.49;
+    %depth of house
+    depth = 5.94;
+
     %Thickness of insulator
     L_ins = 
     %Thickness of wall
     L_wall =
     %Thickness of absorber
     L_abs = 
+
+    %thermal conductivity of insulator
+    k_ins =
+    %thermal cond of outer wall
+    k_wall=
 
     %Heat transfer coeff of window
     h_win = 1.4;
@@ -15,11 +26,11 @@ function dTdt = solarODE(t,T)
     h_out = 30;
 
     %Area of window
-    A_win = 
+    A_win = (sin(deg2rad(72)*height)*depth);
     %Area of wall
     A_wall = 
     %Area of insulator
-    A_ins = 
+    A_ins = (width * height * 2) + (sin(deg2rad(72)*height)*depth) + (width * depth);
     %Area of absorber
     A_abs = 
 
@@ -29,9 +40,9 @@ function dTdt = solarODE(t,T)
     %R air in to insulator
     R1=
     %R air in to window
-    R2= 1/(h_win*A_win);
+    R2= 
     %R through window
-    R3 = 
+    R3 = 1/(h_win*A_win);
     %R through insulator
     R4=
     %R through outer wall

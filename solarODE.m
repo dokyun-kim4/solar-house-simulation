@@ -1,4 +1,4 @@
-function dTdt = solarODE(t,T)  
+function dTdt = solarODE(t,T) 
     %Temperature
     T_out = -3;
     
@@ -11,7 +11,7 @@ function dTdt = solarODE(t,T)
     depth = 5.49;
 
     %Thickness of insulator
-    L_ins = 0.2; 
+    L_ins = 0.01; 
     %Thickness of wall
     L_wall = 0.2;
     %Thickness of absorber
@@ -40,7 +40,7 @@ function dTdt = solarODE(t,T)
     %Area of insulator
     A_ins = (width * height * 2) + (sin(deg2rad(72)*height)*depth) + (width * depth);
     %Area of absorber
-    A_abs = 
+    A_abs = 76.714;
 
 
     %R absorber to air in
@@ -73,6 +73,6 @@ function dTdt = solarODE(t,T)
     R_total = R0+(R_win_total+R_wall_total)^(-1);
 
 
-    dTdt = (Qin/C) - (((T_out-T)/R_total)/C);
+    dTdt = (Qin/C) - (((T-T_out)/R_total)/C);
 
 end

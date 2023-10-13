@@ -11,11 +11,11 @@ function dTdt = solarODE(t,T)
     depth = 5.49;
 
     %Thickness of insulator
-    L_ins = 0.01; 
+    L_ins = 0.02; 
     %Thickness of wall
-    L_wall = 0.2;
+    L_wall = 0.20;
     %Thickness of absorber
-    L_abs = 0.4;
+    L_abs = 0.2;
 
     %thermal conductivity of insulator
     k_ins = 0.04;
@@ -30,7 +30,7 @@ function dTdt = solarODE(t,T)
     h_out = 30;
 
     %Area of window
-    A_win = (sin(deg2rad(72)*height)*depth);
+    A_win = ((sin(deg2rad(72))*height)*depth);
     %Area of one side wall
     A_side = (2*(L_wall + L_ins) + width) * (2*(L_wall + L_ins) + L_abs + height);
     % Area of one top/bottom
@@ -38,7 +38,7 @@ function dTdt = solarODE(t,T)
     %Area of wall
     A_wall = 2*A_side + 2*A_top + ((2*(L_wall + L_ins) + depth) * (2*(L_wall + L_ins) + L_abs + height));
     %Area of insulator
-    A_ins = (width * height * 2) + (sin(deg2rad(72)*height)*depth) + (width * depth);
+    A_ins = (width * height * 2) + ((sin(deg2rad(72))*height)*depth) + (width * depth);
     %Area of absorber
     A_abs = 76.714;
 
@@ -60,7 +60,7 @@ function dTdt = solarODE(t,T)
     %R window to air out
     R7= 1/(h_out*A_win);
     %C absorber
-    C = (A_ins*L_ins)*2600*800;
+    C = (A_abs*L_abs)*2600*800;
     
     %Q of sun
     q_sun = -361*(cos((pi*t)/(12*3600)))+224*(cos((pi*t)/(6*3600)))+210;
